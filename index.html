@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Input in JS</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+
+    <!-- User Inputs -->
+    <script>
+      const input = document.getElementById("input");
+
+      /* Input Event */
+      // This event is gonna fire whenever the input field receives inputs of any kind
+
+      input.addEventListener("input", () => {
+        // The value attribute is gonna be the value of the input field at the time of this event
+        console.log(input.value);
+        // It's gonna fire off everytime the input field receives input
+      });
+
+      /* Change Event */
+      // This event is similar to the input event
+
+      input.addEventListener("change", () => {
+        // When we type in the box, we do not get the console logs. Because the change event only fires off when the input field is changed & the user is done entering data
+        // Done entering data means when they lose focus on the input field. So if u type something in the box & click away, that time the box is no longer focused. So the event fires off
+        // This one is perfect for validation because it's gonna send u a warning or u can use it to warn ur users about error invalidations but only when they're done entering their data
+        console.log(input.value);
+      });
+
+      /* Key Event */
+      // There are 2 events in this:
+      // 1. keydown
+      // 2. keyup
+
+      /* keydown */
+      input.addEventListener("keydown", (e) => {
+        // Whenever ur key goes down. the event fires off
+        // If u hold any key for a longer period of time, that key will continue to fire off
+        // It's similar to input events but this is gonna fire off for any key down on the keyboard
+        // The value of the input field is updated after the event fires off
+        // keydown value is mostly good for games. eg. If u wanna move ur character to the left or right
+        console.log(e);
+        // Inside keydown u will have an event obj. If u console.log the event obj & press the arrow keys, the console will print the keyboard event obj.
+        // Inside the keyboard event obj there will be a code telling u which button was pressed. eg. code: 'ArrowLeft'
+        // U can also detect the key by console.log(e.code).
+      });
+
+      /* keyup */
+      input.addEventListener("keyup", (e) => {
+        // This is gonna fire off whenever the key goes up & this is not used frequently. It's onlu use in rare situations.
+        // How this works is if u hold any key for a longer period of time & release it, then the event will fire in the console
+        // This is rarely used
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>
